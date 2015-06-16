@@ -13,6 +13,15 @@ class Animals
     @animal_counts[animal.intern]
   end
 
+  def count_now(animal)
+    @the_animals.reduce(0) do |counter, current|
+      if ( current == animal )
+        counter = counter + 1
+      end
+      counter
+    end
+  end
+
   def <<(animal)
     @the_animals << animal
     count_animals

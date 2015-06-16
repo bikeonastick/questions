@@ -27,6 +27,19 @@ RSpec.describe Animals do
       end
     end
   end
+  describe '#count_now' do
+    context 'when there are multiples of one animal and singles of others' do
+
+      let(:subject) { Animals.new(['panda','lion','panda','poodle','panda'])}
+
+      it 'returns a count value that matches the count of the multi animal' do
+        expect(subject.count_now('panda')).to equal(subject.count('panda'))
+      end
+      it 'returns a value that matches the count of the single animal' do
+        expect(subject.count_now('poodle')).to equal(subject.count('poodle'))
+      end
+    end
+  end
   describe '#<<' do
     context 'when there are existing counts and another animal, counts change' do
 
